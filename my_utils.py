@@ -1,3 +1,5 @@
+
+
 def detect_web_v1(path):
     """Detects web annotations given an image."""
     from google.cloud import vision
@@ -46,11 +48,11 @@ def detect_web_v1(path):
 
 
 from utils import get_captions_from_page,save_html
-import fasttext
+from gensim.models import FastText as ft
 import os
 
 PRETRAINED_MODEL_PATH = 'llm-ckpt/lid.176.bin'
-model = fasttext.load_model(PRETRAINED_MODEL_PATH)
+model = ft.load_model(PRETRAINED_MODEL_PATH)
 
 
 def get_captions_and_process(img_url,page_url,page, save_folder_path,file_save_counter):

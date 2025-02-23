@@ -38,7 +38,7 @@ wandb.login()
 def parse_args():
     parser = argparse.ArgumentParser(description="Training")
 
-    parser.add_argument("--cfg-path", required=True, help="path to configuration file.")
+    parser.add_argument("--cfg-path", default = "lavis/projects/instructblip2/train/ooc_ft.yaml", required=True, help="path to configuration file.")
     parser.add_argument(
         "--options",
         nargs="+",
