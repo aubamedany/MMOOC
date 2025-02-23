@@ -42,6 +42,11 @@ from lavis.datasets.builders.text_to_image_generation_builder import BlipDiffusi
 from lavis.datasets.builders.factvqa_builder import NewsClipFactVQABuilder
 from lavis.datasets.builders.newsvqa_builder import NewsClipNewsVQABuilder
 
+from lavis.datasets.builders.ooc_builder import (
+    OOCBuilder
+)
+
+
 from lavis.common.registry import registry
 
 __all__ = [
@@ -70,6 +75,7 @@ __all__ = [
     "AVSDDialBuilder",
     "NewsClipFactVQABuilder",
     "NewsClipNewsVQABuilder",
+    "OOCBuilder"
 ]
 
 
