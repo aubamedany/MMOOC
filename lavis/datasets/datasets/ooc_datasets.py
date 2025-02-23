@@ -12,12 +12,10 @@ class __DisplMixin:
 
         return OrderedDict(
             {
-                "file": ann["img_path"],
-                "caption": ann["caption"],
-                "answer": ann["answer"],
                 "image": sample["img_path"],
-                "label": ann['best_guess_labels'],
+                "caption": ann["caption"],
                 'rewritten_caption': ann['rewritten_caption'],
+                "label": ann['best_guess_labels'],
                 "web_description": ann['web_description'],
                 'page_title': ann['page_title_matching_images']
             }
