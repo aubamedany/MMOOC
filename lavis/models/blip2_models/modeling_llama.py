@@ -32,10 +32,13 @@ from transformers.modeling_utils import PreTrainedModel
 from transformers.utils import add_start_docstrings, add_start_docstrings_to_model_forward, logging, replace_return_docstrings
 from transformers.models.llama.configuration_llama import LlamaConfig
 
-import xformers
+
+# debug attention
+# import xformers
 # from flash_attn import flash_attn_func, flash_attn_varlen_func
 # from flash_attn.bert_padding import index_first_axis, pad_input, unpad_input  # noqa
 
+import torch.nn.functional as F
 
 logger = logging.get_logger(__name__)
 
@@ -325,9 +328,14 @@ class LlamaAttentionXFormers(nn.Module):
                 )
             attention_mask = attention_mask.repeat_interleave(self.num_heads, dim=0).squeeze(1) # bsz*nh, qlen, kvlen
 
-        attn_output = xformers.ops.memory_efficient_attention(
-            query_states, key_states, value_states, attn_bias=attention_mask, op=None, scale=attn_scale
-        )
+        #### debug
+        # attn_output = xformers.ops.memory_efficient_attention(
+        #     query_states, key_states, value_states, attn_bias=attention_mask, op=None, scale=attn_scale
+        # )
+        #####
+        attn_output = F.scaled_dot_product_attention(
+        query_states, key_states, value_states, attn_mask=attention_mask, dropout_p=0.0
+        )   
 
         attn_output = attn_output.to(query_states.dtype)
         attn_output = attn_output.reshape(bsz, self.num_heads, q_len, self.head_dim)
