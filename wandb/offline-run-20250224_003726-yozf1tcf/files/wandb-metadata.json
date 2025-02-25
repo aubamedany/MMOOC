@@ -1,0 +1,19 @@
+{
+  "os":  "macOS-15.1-arm64-arm-64bit",
+  "python":  "CPython 3.9.21",
+  "startedAt":  "2025-02-23T17:37:26.596684Z",
+  "args":  [
+    "--cfg-path",
+    "lavis/projects/instructblip2/train/newsvqa_newsclip_ft.yaml"
+  ],
+  "program":  "/Users/namle/DATN/Sniffer/train.py",
+  "codePath":  "train.py",
+  "git":  {
+    "remote":  "https://github.com/aubamedany/MMOOC.git",
+    "commit":  "dc113d17cc728bc746d8e6ada38a86f4d60e2da4"
+  },
+  "root":  "/Users/namle/DATN/Sniffer",
+  "host":  "192.168.2.5",
+  "executable":  "/opt/anaconda3/envs/lavis/bin/python",
+  "codePathLocal":  "train.py"
+}

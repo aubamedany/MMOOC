@@ -41,11 +41,7 @@ __all__ = [
     "VQARCTask",
     "GQARCTask",
     "MultimodalClassificationTask",
-    "VideoQATask",
-    "VisualEntailmentTask",
-    "ImageTextPretrainTask",
-    "DialogueTask",
-    "TextToImageGenerationTask",
     "FactVQATask",
     "NewsVQATask",
+
 ]

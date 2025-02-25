@@ -1,0 +1,41 @@
+2025-02-24 00:35:57,141 INFO    MainThread:39673 [wandb_setup.py:_flush():67] Current SDK version is 0.19.7
+2025-02-24 00:35:57,141 INFO    MainThread:39673 [wandb_setup.py:_flush():67] Configure stats pid to 39673
+2025-02-24 00:35:57,141 INFO    MainThread:39673 [wandb_setup.py:_flush():67] Loading settings from /Users/namle/.config/wandb/settings
+2025-02-24 00:35:57,141 INFO    MainThread:39673 [wandb_setup.py:_flush():67] Loading settings from /Users/namle/DATN/Sniffer/wandb/settings
+2025-02-24 00:35:57,141 INFO    MainThread:39673 [wandb_setup.py:_flush():67] Loading settings from environment variables
+2025-02-24 00:35:57,141 INFO    MainThread:39673 [wandb_init.py:setup_run_log_directory():647] Logging user logs to /Users/namle/DATN/Sniffer/wandb/offline-run-20250224_003557-tlnzk7zx/logs/debug.log
+2025-02-24 00:35:57,141 INFO    MainThread:39673 [wandb_init.py:setup_run_log_directory():648] Logging internal logs to /Users/namle/DATN/Sniffer/wandb/offline-run-20250224_003557-tlnzk7zx/logs/debug-internal.log
+2025-02-24 00:35:57,141 INFO    MainThread:39673 [wandb_init.py:init():761] calling init triggers
+2025-02-24 00:35:57,141 INFO    MainThread:39673 [wandb_init.py:init():766] wandb.init called with sweep_config: {}
+config: {'config': {'run': {'task': 'captioning', 'lr_sched': 'linear_warmup_cosine_lr', 'init_lr': 1e-05, 'min_lr': 0, 'warmup_lr': 1e-08, 'warmup_steps': 1000, 'weight_decay': 0.05, 'max_epoch': 5, 'batch_size_train': 16, 'batch_size_eval': 8, 'num_workers': 4, 'accum_grad_iters': 1, 'max_len': 30, 'min_len': 8, 'num_beams': 5, 'seed': 42, 'output_dir': 'output/BLIP2/Caption_coco', 'amp': True, 'resume_ckpt_path': None, 'evaluate': False, 'train_splits': ['train'], 'valid_splits': ['val'], 'test_splits': ['test'], 'device': 'cuda', 'world_size': 1, 'dist_url': 'env://', 'distributed': False}, 'model': {'arch': 'blip2_opt', 'load_finetuned': False, 'pretrained': 'https://storage.googleapis.com/sfr-vision-language-research/LAVIS/models/BLIP2/blip2_pretrained_opt2.7b.pth', 'finetuned': 'https://storage.googleapis.com/sfr-vision-language-research/LAVIS/models/BLIP2/blip2_caption_opt2.7b.pth', 'image_size': 364, 'drop_path_rate': 0, 'use_grad_checkpoint': True, 'vit_precision': 'fp32', 'freeze_vit': False, 'num_query_token': 32, 'opt_model': 'facebook/opt-2.7b', 'prompt': 'a photo of', 'model_type': 'caption_coco_opt2.7b'}, 'preprocess': {'vis_processor': {'train': {'name': 'blip_image_train', 'image_size': 364}, 'eval': {'name': 'blip_image_eval', 'image_size': 364}}, 'text_processor': {'train': {'name': 'blip_caption'}, 'eval': {'name': 'blip_caption'}}}, 'datasets': {'coco_caption': {'dataset_card': 'dataset_card/coco_caption.md', 'data_type': 'images', 'build_info': {'annotations': {'train': {'url': 'https://storage.googleapis.com/sfr-vision-language-research/datasets/coco_karpathy_train.json', 'md5': 'aa31ac474cf6250ebb81d18348a07ed8', 'storage': 'coco/annotations/coco_karpathy_train.json'}, 'val': {'url': 'https://storage.googleapis.com/sfr-vision-language-research/datasets/coco_karpathy_val.json', 'md5': 'b273847456ef5580e33713b1f7de52a0', 'storage': 'coco/annotations/coco_karpathy_val.json'}, 'test': {'url': 'https://storage.googleapis.com/sfr-vision-language-research/datasets/coco_karpathy_test.json', 'md5': '3ff34b0ef2db02d01c37399f6a2a6cd1', 'storage': 'coco/annotations/coco_karpathy_test.json'}}, 'images': {'storage': 'coco/images/'}}, 'vis_processor': {'train': {'name': 'blip2_image_train', 'image_size': 364}, 'eval': {'name': 'blip_image_eval', 'image_size': 364}}, 'text_processor': {'train': {'name': 'blip_caption', 'prompt': 'a photo of '}, 'eval': {'name': 'blip_caption'}}}}}, 'args': Namespace(cfg_path='lavis/projects/blip2/train/caption_coco_ft.yaml', options=None, wname=None, use_lora=False), '_wandb': {}}
+2025-02-24 00:35:57,141 INFO    MainThread:39673 [wandb_init.py:init():784] starting backend
+2025-02-24 00:35:57,141 INFO    MainThread:39673 [wandb_init.py:init():788] sending inform_init request
+2025-02-24 00:35:57,184 INFO    MainThread:39673 [backend.py:_multiprocessing_setup():97] multiprocessing start_methods=spawn,fork,forkserver, using: spawn
+2025-02-24 00:35:57,184 INFO    MainThread:39673 [wandb_init.py:init():803] backend started and connected
+2025-02-24 00:35:57,189 INFO    MainThread:39673 [wandb_init.py:init():896] updated telemetry
+2025-02-24 00:35:57,213 INFO    MainThread:39673 [wandb_init.py:init():920] communicating run to backend with 90.0 second timeout
+2025-02-24 00:35:57,847 INFO    MainThread:39673 [wandb_init.py:init():995] starting run threads in backend
+2025-02-24 00:35:58,133 INFO    MainThread:39673 [wandb_run.py:_console_start():2377] atexit reg
+2025-02-24 00:35:58,134 INFO    MainThread:39673 [wandb_run.py:_redirect():2227] redirect: wrap_raw
+2025-02-24 00:35:58,134 INFO    MainThread:39673 [wandb_run.py:_redirect():2292] Wrapping output streams.
+2025-02-24 00:35:58,134 INFO    MainThread:39673 [wandb_run.py:_redirect():2317] Redirects installed.
+2025-02-24 00:35:58,136 INFO    MainThread:39673 [wandb_init.py:init():1037] run started, returning control to user process
+2025-02-24 00:35:58,142 WARNING MsgRouterThr:39673 [router.py:message_loop():77] message_loop has been closed
+Traceback (most recent call last):
+  File "/opt/anaconda3/envs/lavis/lib/python3.9/site-packages/wandb/sdk/interface/router_sock.py", line 28, in _read_message
+    resp = self._sock_client.read_server_response(timeout=1)
+  File "/opt/anaconda3/envs/lavis/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 285, in read_server_response
+    data = self._read_packet_bytes(timeout=timeout)
+  File "/opt/anaconda3/envs/lavis/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 270, in _read_packet_bytes
+    raise SockClientClosedError
+wandb.sdk.lib.sock_client.SockClientClosedError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/anaconda3/envs/lavis/lib/python3.9/site-packages/wandb/sdk/interface/router.py", line 70, in message_loop
+    msg = self._read_message()
+  File "/opt/anaconda3/envs/lavis/lib/python3.9/site-packages/wandb/sdk/interface/router_sock.py", line 30, in _read_message
+    raise MessageRouterClosedError from e
+wandb.sdk.interface.router.MessageRouterClosedError
+2025-02-24 00:35:58,143 INFO    MsgRouterThr:39673 [mailbox.py:close():115] Closing mailbox, abandoning 0 handles.

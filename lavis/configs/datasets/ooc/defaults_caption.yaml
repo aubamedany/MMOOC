@@ -9,6 +9,6 @@ datasets:
         train:
           # url: https://storage.googleapis.com/sfr-vision-language-research/datasets/coco_karpathy_train.json
           # md5: aa31ac474cf6250ebb81d18348a07ed8
-          storage: ooc.json
+          storage: /datasets/ooc.json
       images:
-        storage: imagess/
+        storage: /datasets/images/

@@ -207,7 +207,12 @@ class BaseDatasetBuilder:
                 ann_paths = [ann_paths]
 
             abs_ann_paths = []
+            
             for ann_path in ann_paths:
+                print("****************")
+                cur_path = os.getcwd()
+                ann_path = cur_path+ann_path
+                print(ann_path)
                 if not os.path.isabs(ann_path):
                     ann_path = utils.get_cache_path(ann_path)
                 abs_ann_paths.append(ann_path)
@@ -215,9 +220,11 @@ class BaseDatasetBuilder:
 
             # visual data storage path
             vis_path = vis_info.storage
-
+            cur_path = os.getcwd()
+            vis_path = cur_path+vis_path
             if not os.path.isabs(vis_path):
                 # vis_path = os.path.join(utils.get_cache_path(), vis_path)
+                
                 vis_path = utils.get_cache_path(vis_path)
 
             if not os.path.exists(vis_path):

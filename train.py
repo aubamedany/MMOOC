@@ -38,7 +38,7 @@ wandb.login()
 def parse_args():
     parser = argparse.ArgumentParser(description="Training")
 
-    parser.add_argument("--cfg-path", default = "lavis/projects/instructblip2/train/ooc_ft.yaml", required=True, help="path to configuration file.")
+    parser.add_argument("--cfg-path", default = "lavis/projects/instructblip2/train/ooc_ft.yaml", required=False, help="path to configuration file.")
     parser.add_argument(
         "--options",
         nargs="+",
@@ -111,10 +111,10 @@ def main():
     datasets = task.build_datasets(cfg)
     model = task.build_model(cfg)
 
-    runner = get_runner_class(cfg)(
-        cfg=cfg, job_id=job_id, task=task, model=model, datasets=datasets
-    )
-    runner.train()
+    # runner = get_runner_class(cfg)(
+    #     cfg=cfg, job_id=job_id, task=task, model=model, datasets=datasets
+    # )
+    # runner.train()
 
 
 if __name__ == "__main__":

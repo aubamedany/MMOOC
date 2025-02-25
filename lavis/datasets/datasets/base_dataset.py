@@ -11,7 +11,7 @@ from typing import Iterable
 from torch.utils.data import Dataset, ConcatDataset
 from torch.utils.data.dataloader import default_collate
 
-
+import os
 class BaseDataset(Dataset):
     def __init__(
         self, vis_processor=None, text_processor=None, vis_root=None, ann_paths=[]
@@ -24,6 +24,10 @@ class BaseDataset(Dataset):
 
         self.annotation = []
         for ann_path in ann_paths:
+            # print("****************")
+            # print(ann_path)
+            # print(os.getcwd())
+            # ann_path = os.path.join(os.getcwd(), ann_path)
             self.annotation.extend(json.load(open(ann_path, "r")))
 
         self.vis_processor = vis_processor
