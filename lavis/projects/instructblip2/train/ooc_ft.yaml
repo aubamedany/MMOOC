@@ -15,10 +15,10 @@ model:
   # max_output_txt_len:
   finetuned: ""
 
-  # pretrained: "https://storage.googleapis.com/sfr-vision-language-research/LAVIS/models/InstructBLIP/instruct_blip_vicuna7b_trimmed.pth"
-  pretrained: "llm-ckpt/instruct_blip_vicuna7b_trimmed.pth"
+  pretrained: "https://storage.googleapis.com/sfr-vision-language-research/LAVIS/models/InstructBLIP/instruct_blip_vicuna7b_trimmed.pth"
+  # pretrained: "llm-ckpt/instruct_blip_vicuna7b_trimmed.pth"
 
-  llm_model: "llm-ckpt/vicuna-7b-v1.1"
+  llm_model: "lmsys/vicuna-7b-v1.1"
   
 
 datasets:
