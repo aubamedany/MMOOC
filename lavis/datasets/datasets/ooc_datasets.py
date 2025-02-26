@@ -38,19 +38,22 @@ class OOCDataset(BaseDataset, __DisplMixin):
                 n += 1
         
         
-    def get_instruction(self, label, title):
+    def get_instruction(self, label, text):
         prompt = f"""
-        You are a helpful assistant specializing in writing image captions for improved accuracy and informativeness.
-        You will be provided with an image caption along with additional context in the following format:
-        <context>
-        LABEL: {label}  
-        RELATED PAGE TITLE: {title}  
-        </context>  
+        You are an expert image captioning assistant trained to generate captions. Your goal is to ensure the caption is contextually aligned with the image and any supporting information.
 
-        Your task is to integrate all of the key details from the context into the image while maintaining clarity and relevance.
-        Ensure the caption is more precise and informative.
-        Output only the caption, without any extra text.
-    """
+        **### Context Information:**
+        - **Label (Category):** {label}
+        - **Related Text:** {text}
+
+        **### Instructions:**
+        1. **Analyze the provided context** to ensure accuracy in the caption.
+        2. **Maintain factual consistency** between the image and contextual information.
+        3. **Ensure clarity, conciseness, and informativeness** while avoiding assumptions.
+        4. **Output only the caption**, without explanations, formatting, or additional text.
+
+        Generate the caption:
+        """
 
         return prompt
 
@@ -59,7 +62,7 @@ class OOCDataset(BaseDataset, __DisplMixin):
 
         ann = self.annotation[index]
 
-        image_path = os.path.join(self.vis_root, ann["img_path"])
+        image_path = os.path.join(self.vis_root, ann["image_path"])
         image = Image.open(image_path).convert("RGB")
 
         image = self.vis_processor(image)
