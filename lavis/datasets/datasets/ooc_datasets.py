@@ -38,14 +38,14 @@ class OOCDataset(BaseDataset, __DisplMixin):
                 n += 1
         
         
-    def get_instruction(self, label, text):
+    def get_instruction(self, label, text,description):
         prompt = f"""
         You are an expert image captioning assistant trained to generate captions. Your goal is to ensure the caption is contextually aligned with the image and any supporting information.
 
         **### Context Information:**
         - **Label (Category):** {label}
         - **Related Text:** {text}
-
+        - **Description: ** {description}
         **### Instructions:**
         1. **Analyze the provided context** to ensure accuracy in the caption.
         2. **Maintain factual consistency** between the image and contextual information.
@@ -67,7 +67,7 @@ class OOCDataset(BaseDataset, __DisplMixin):
 
         image = self.vis_processor(image)
 
-        text_input = self.text_processor( self.get_instruction( ann["best_guess_labels"], ann['page_title_matching_images'] ) )
+        text_input = self.text_processor( self.get_instruction( ann["best_guess_labels"], ann['page_title_matching_images'], ann['web_description'] ) )
         caption = self.text_processor(ann['rewritten_caption'])
 
         return {

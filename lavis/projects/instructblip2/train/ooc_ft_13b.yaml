@@ -6,7 +6,7 @@
 
 model:
   arch: blip2_vicuna_instruct
-  model_type: vicuna7b 
+  model_type: vicuna13b
   load_finetuned: False
   use_grad_checkpoint: True
   freeze_vit: True
@@ -15,10 +15,10 @@ model:
   max_output_txt_len: 512
   finetuned: ""
 
-  pretrained: "https://storage.googleapis.com/sfr-vision-language-research/LAVIS/models/InstructBLIP/instruct_blip_vicuna7b_trimmed.pth"
+  pretrained: "https://storage.googleapis.com/sfr-vision-language-research/LAVIS/models/InstructBLIP/instruct_blip_vicuna13b_trimmed.pth"
   # pretrained: "llm-ckpt/instruct_blip_vicuna7b_trimmed.pth"
 
-  llm_model: "lmsys/vicuna-7b-v1.1"
+  llm_model: "lmsys/vicuna-13b-v1.1"
   
 
 datasets:
@@ -56,7 +56,7 @@ run:
   warmup_lr: 1e-8
   warmup_steps: 1000
   weight_decay: 0.05
-  max_epoch: 20
+  max_epoch: 10
   batch_size_train: 1 
   batch_size_eval: 1
   num_workers: 4
@@ -68,7 +68,7 @@ run:
   num_beams: 1 
 
   seed: 42
-  output_dir: "output/blip2_vicuna_instruct/ooc_7b"
+  output_dir: "output/blip2_vicuna_instruct/ooc_13b"
 
   amp: True
   resume_ckpt_path: null 

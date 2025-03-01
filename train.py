@@ -111,10 +111,10 @@ def main():
     datasets = task.build_datasets(cfg)
     model = task.build_model(cfg)
 
-    # runner = get_runner_class(cfg)(
-    #     cfg=cfg, job_id=job_id, task=task, model=model, datasets=datasets
-    # )
-    # runner.train()
+    runner = get_runner_class(cfg)(
+        cfg=cfg, job_id=job_id, task=task, model=model, datasets=datasets
+    )
+    runner.train()
 
 
 if __name__ == "__main__":
