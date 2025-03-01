@@ -15,7 +15,7 @@ from lavis.tasks.base_task import BaseTask
 
 @registry.register_task("captioning")
 class CaptionTask(BaseTask):
-    def __init__(self, num_beams, max_len, min_len, evaluate, report_metric=True):
+    def __init__(self, num_beams, max_len, min_len, evaluate, report_metric=False):
         super().__init__()
 
         self.num_beams = num_beams
@@ -34,7 +34,7 @@ class CaptionTask(BaseTask):
         min_len = run_cfg.min_len
         evaluate = run_cfg.evaluate
 
-        report_metric = run_cfg.get("report_metric", True)
+        report_metric = run_cfg.get("report_metric", False)
 
         return cls(
             num_beams=num_beams,

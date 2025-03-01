@@ -74,5 +74,5 @@ class OOCDataset(BaseDataset, __DisplMixin):
             "image": image,
             "text_input": text_input,
             "text_output": caption,
-            "image_id": self.img_ids[ann["idx"]],
+            "image_id": self.img_ids[ann["instance_id"]],
         }
