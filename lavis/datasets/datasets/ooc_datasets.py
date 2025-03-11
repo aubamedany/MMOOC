@@ -44,7 +44,7 @@ class OOCDataset(BaseDataset, __DisplMixin):
             
             - Label: {label}  
             - Related Text: {text}  
-            - Web Description: {description}  
+            - Entities: {description}  
             
             Caption:
             """
