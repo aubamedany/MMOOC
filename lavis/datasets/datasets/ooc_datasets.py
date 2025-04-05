@@ -15,9 +15,12 @@ class __DisplMixin:
                 "image": sample["image_path"],
                 "caption": ann["caption"],
                 'rewritten_caption': ann['rewritten_caption'],
-                "label": ann['best_guess_labels'],
-                "web_description": ann['web_description'],
-                'page_title': ann['page_title_matching_images']
+                "date": ann['date'],
+                "location": ann['location'],
+                'people': ann['people'],
+                "event": ann['event'],
+                "motivation": ann['motivation'],
+                'object': ann['object']
             }
         )
 
@@ -38,13 +41,16 @@ class OOCDataset(BaseDataset, __DisplMixin):
                 n += 1
         
         
-    def get_instruction(self, label, text,description):
+    def get_instruction(self, date, location, people, event, motivation, object):
         prompt = f"""
-            Generate a detailed caption that integrates both the visual content of the image and the provided contextual information.
-            
-            - Label: {label}  
-            - Related Text: {text}  
-            - Entities: {description}  
+            You are given a date, a location, people, event, objects, and a motivation describing an image. Combine the 6 in one sentence of maximum 30 words. Write the facts only, avoid journalistic style and adjectives, avoid introducing new information.
+            Note that, some fields may be missing.
+            - Date: {date}  
+            - Location: {location}  
+            - People: {people} 
+            - Event: {event}  
+            - Motivation: {motivation}  
+            - Objects: {object}   
             
             Caption:
             """
@@ -61,7 +67,7 @@ class OOCDataset(BaseDataset, __DisplMixin):
 
         image = self.vis_processor(image)
 
-        text_input = self.text_processor( self.get_instruction( ann["best_guess_labels"], ann['page_title_matching_images'], ann['web_description'] ) )
+        text_input = self.text_processor( self.get_instruction( ann['date'], ann['location'], ann['people'], ann['event'], ann['motivation'] , ann['object']  ) )
         caption = self.text_processor(ann['rewritten_caption'])
 
         return {
