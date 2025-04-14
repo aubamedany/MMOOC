@@ -43,18 +43,23 @@ class OOCDataset(BaseDataset, __DisplMixin):
         
     def get_instruction(self, date, location, people, event, motivation, object):
         prompt = f"""
-            You are given a date, a location, people, event, objects, and a motivation describing an image. Combine the 6 in one sentence of maximum 30 words. Write the facts only, avoid journalistic style and adjectives, avoid introducing new information.
-            Note that, some fields may be missing.
-            - Date: {date}  
-            - Location: {location}  
-            - People: {people} 
-            - Event: {event}  
-            - Motivation: {motivation}  
-            - Objects: {object}   
-            
-            Caption:
-            """
+            You are given a news photograph and optional contextual information including date, location, people, event, objects, and motivation.
 
+            Your task is to analyze the image and write a caption of the event shown in the image.
+
+            - Do not speculate or add information not present in the image or fields.
+            - Avoid adjectives or descriptive storytelling.
+            - Some fields may be missing.
+
+            - Date: {date}
+            - Location: {location}
+            - People: {people}
+            - Event: {event}
+            - Objects: {object}
+            - Motivation: {motivation}
+
+            Summary:
+            """
         return prompt
 
     
