@@ -43,7 +43,7 @@ class OOCDataset(BaseDataset, __DisplMixin):
         
     def get_instruction(self, date, location, people, event, motivation, object):
         prompt = f"""
-            You are given a news photograph and optional contextual information including date, location, people, event, objects, and motivation.
+            You are given a news image and optional contextual information including date, location, people, event, objects, and motivation.
 
             Your task is to analyze the image and write a caption of the event shown in the image.
 
